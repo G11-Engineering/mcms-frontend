@@ -20,12 +20,6 @@ RUN ls -a
 FROM base AS builder
 WORKDIR /app
 
-# COPY --from=deps /app/.yarn ./.yarn
-# COPY --from=deps /app/.pnp.cjs ./
-# COPY --from=deps /app/.yarnrc.yml ./
-# COPY --from=deps /app/yarn.lock ./
-# COPY --from=deps /app/yarn.lock ./
-# COPY --from=deps /app/package.json ./
 COPY --from=deps /app/node_modules ./node_modules
 
 COPY . .
