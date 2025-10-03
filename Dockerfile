@@ -22,7 +22,13 @@ WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
 
-COPY . .
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn/releases ./.yarn/releases
+
+COPY next.config.mjs tsconfig.json postcss.config.cjs theme.ts ./
+COPY app ./app
+COPY components ./components
+COPY public ./public
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
