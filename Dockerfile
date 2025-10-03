@@ -57,6 +57,7 @@ RUN yarn workspaces focus --production
 # Copy build artifacts and public folder (non-standalone)
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+RUN chmod -R a-w .next public
 
 USER nextjs
 
